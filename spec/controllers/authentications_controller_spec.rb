@@ -29,11 +29,5 @@ RSpec.describe AuthenticationsController, type: :controller do
 
       it { expect(response.status).to eq(401) }
     end
-
-    context 'with missing/invalid params' do
-      before { post :create, params: { foo: { bar: 'baz' }, format: :json } }
-
-      it { expect(response.status).to eq(422) }
-    end
   end
 end
