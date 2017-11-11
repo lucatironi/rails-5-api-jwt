@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 2.4.2
+before_script:
+  - psql -c 'create database app_test;' -U $DB_USER
+cache:
+  - bundler
+services:
+  - postgresql
+test:
+  adapter: postgresql
+  database: app_test
+addons:
+  code_climate:
+    repo_token: 043fa33f7b4ca0260700d21c051483f7f8b98501f7f6ba09a63673e8b03fd51e
