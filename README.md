@@ -41,7 +41,9 @@ $ docker-compose exec web bundle exec spec
 Test the API with Curl
 
 ```
-$ curl -i -X POST -H "Content-Type:application/json" -d '{"email":"user@example.com", "password":"password"}' http://localhost:3000/authentications.json
+$ curl -i -X POST -H "Content-Type:application/json" \
+-d '{"email":"user@example.com", "password":"password"}' \
+http://localhost:3000/authentications.json
 ```
 
 The response will contain the JSON Web Token
@@ -53,5 +55,7 @@ The response will contain the JSON Web Token
 Use it with another request to an authenticated endpoint, passing it as a an `Authorization` header
 
 ```
-$ curl -i -H "Content-Type:application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIloxLCJleHAiOjE1MTA1MTcwMzd9.S4c2YwqajvZupSQdeK5dwn8h8JSO90S851ua36Gz2s0" http://localhost:3000/customers.json
+$ curl -i -H "Content-Type:application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIloxLCJleHAiOjE1MTA1MTcwMzd9.S4c2YwqajvZupSQdeK5dwn8h8JSO90S851ua36Gz2s0" \
+http://localhost:3000/customers.json
 ```
