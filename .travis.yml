@@ -8,7 +8,7 @@ language: ruby
 rvm:
   - 2.4.2
 before_script:
-  - psql -c 'create database app_test;' -U $DB_USER
+  - psql -c 'create database test_database;' -U $DB_USER
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
@@ -18,7 +18,7 @@ services:
   - postgresql
 test:
   adapter: postgresql
-  database: app_test
+  database: test_database
 script:
   - bundle exec rspec
 after_script:
