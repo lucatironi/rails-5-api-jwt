@@ -1,11 +1,9 @@
 class AuthenticationsController < ApplicationController
-  skip_before_action :authenticate, only: [:create]
-
   def create
     token = TokenIssuer.new(*auth_params).call
 
     if token
-      render json: { auth_token: token }
+      render json: { auth_token: token }, status: :ok
     else
       render json: { error: 'Invalid Credentials' }, status: :unauthorized
     end

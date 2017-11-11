@@ -1,4 +1,4 @@
-class CustomersController < ApplicationController
+class CustomersController < AuthenticatedController
   before_action :set_customer, only: %i[show update destroy]
 
   def index

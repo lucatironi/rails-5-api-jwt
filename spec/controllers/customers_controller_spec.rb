@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe CustomersController, type: :controller do
   before do
-    user = User.create(email: 'user@example.com', password: 'password')
-    allow_any_instance_of(AuthorizationIssuer).to receive(:call)
-      .and_return(user)
+    allow_message_expectations_on_nil
+    user = double(:user)
+    allow(request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
   end
 
   # This should return the minimal set of attributes required to create a valid
