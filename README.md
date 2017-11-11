@@ -1,6 +1,6 @@
 # README
 
-[![Code Climate](https://codeclimate.com/github/lucatironi/rails-5-api-jwt/badges/gpa.svg)](https://codeclimate.com/github/lucatironi/rails-5-api-jwt) [![Test Coverage](https://codeclimate.com/github/lucatironi/rails-5-api-jwt/badges/coverage.svg)](https://codeclimate.com/github/lucatironi/rails-5-api-jwt/coverage) [![Build Status](https://travis-ci.org/lucatironi/rails-5-api-jwt.svg?branch=master)](https://travis-ci.org/lucatironi/rails-5-api-jwt)
+[![Code Climate](https://codeclimate.com/github/lucatironi/rails-5-api-jwt/badges/gpa.svg)](https://codeclimate.com/github/lucatironi/rails-5-api-jwt) [![Test Coverage](https://api.codeclimate.com/v1/badges/b88c7616fec85a2fea97/test_coverage)](https://codeclimate.com/github/lucatironi/rails-5-api-jwt/test_coverage) [![Build Status](https://travis-ci.org/lucatironi/rails-5-api-jwt.svg?branch=master)](https://travis-ci.org/lucatironi/rails-5-api-jwt)
 
 Rails 5 API application (`--api`) using [Warden](https://github.com/hassox/warden) to authenticate requests with [JSON Web Tokens](https://jwt.io/). Updated from [my other repository](https://github.com/lucatironi/example_rails_api) and using [Docker Compose](https://docs.docker.com/compose/).
 
