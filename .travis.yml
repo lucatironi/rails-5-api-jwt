@@ -1,5 +1,8 @@
 env:
   global:
+    - DB_USER=postgres
+    - DB_PSWD=postgres
+    - DB_HOST=localhost
     - CC_TEST_REPORTER_ID=043fa33f7b4ca0260700d21c051483f7f8b98501f7f6ba09a63673e8b03fd51e
 language: ruby
 rvm:
