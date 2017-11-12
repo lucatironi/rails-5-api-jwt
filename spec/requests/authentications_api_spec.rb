@@ -20,5 +20,12 @@ RSpec.describe 'Authentication', type: :request do
       expect(response).to have_http_status(401)
       expect(parsed_response).to eq('error' => 'Unauthorized Request')
     end
+
+    it "doesn't log in the user with missing parameters" do
+      post authentications_path, params: { email: user.email, format: :json }
+
+      expect(response).to have_http_status(422)
+      expect(parsed_response).to eq('error' => 'param is missing or the value is empty: password')
+    end
   end
 end

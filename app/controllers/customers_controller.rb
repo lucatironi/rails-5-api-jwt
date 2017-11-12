@@ -17,7 +17,7 @@ class CustomersController < AuthenticatedController
     if @customer.save
       render json: @customer, status: :created, location: @customer
     else
-      render json: @customer.errors, status: :unprocessable_entity
+      render json: { error: @customer.errors }, status: :unprocessable_entity
     end
   end
 
@@ -25,7 +25,7 @@ class CustomersController < AuthenticatedController
     if @customer.update(customer_params)
       head :no_content
     else
-      render json: @customer.errors, status: :unprocessable_entity
+      render json: { error: @customer.errors }, status: :unprocessable_entity
     end
   end
 
