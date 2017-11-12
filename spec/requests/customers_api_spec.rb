@@ -45,10 +45,10 @@ RSpec.describe 'Customers API endpoint', type: :request do
       get customer_path(customer), params: { format: :json }, headers: valid_headers
 
       expect(response).to have_http_status(200)
-      expect(parsed_response).to eq({ 'id' => customer.id,
-                                      'full_name' => 'John Doe',
-                                      'email' => 'john.doe@example.com',
-                                      'phone' => '123456789' })
+      expect(parsed_response).to eq('id' => customer.id,
+                                    'full_name' => 'John Doe',
+                                    'email' => 'john.doe@example.com',
+                                    'phone' => '123456789')
     end
 
     it "doesn't get a single customer with invalid jwt" do
@@ -73,10 +73,10 @@ RSpec.describe 'Customers API endpoint', type: :request do
            headers: valid_headers
 
       expect(response).to have_http_status(201)
-      expect(parsed_response).to eq({ 'id' => Customer.last.id,
-                                      'full_name' => 'John Doe',
-                                      'email' => 'john.doe@example.com',
-                                      'phone' => '123456789' })
+      expect(parsed_response).to eq('id' => Customer.last.id,
+                                    'full_name' => 'John Doe',
+                                    'email' => 'john.doe@example.com',
+                                    'phone' => '123456789')
     end
 
     it "doesn't create a new customer with invalid attributes" do
@@ -113,8 +113,8 @@ RSpec.describe 'Customers API endpoint', type: :request do
 
     it "doesn't update a customer with nvalid attributes" do
       patch customer_path(customer),
-           params: { customer: { full_name: '', phone: '234567890' }, format: :json },
-           headers: valid_headers
+            params: { customer: { full_name: '', phone: '234567890' }, format: :json },
+            headers: valid_headers
 
       expect(response).to have_http_status(422)
       expect(parsed_response).to eq('error' => { 'full_name' => ["can't be blank"] })
@@ -152,7 +152,7 @@ RSpec.describe 'Customers API endpoint', type: :request do
       expect(response).to have_http_status(204)
       expect(response.body).to be_empty
 
-      expect{ customer.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      expect { customer.reload }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "doesn't delete a customer with invalid jwt" do
