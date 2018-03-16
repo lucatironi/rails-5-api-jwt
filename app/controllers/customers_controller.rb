@@ -8,7 +8,11 @@ class CustomersController < AuthenticatedController
   end
 
   def show
-    render json: @customer
+    respond_to do |format|
+      format.text @customer.to_json
+      format.json { render @customer }
+    end
+
   end
 
   def create
